@@ -23,6 +23,8 @@ body {
   --surface-transition-timing: var(--ease-out-quad);
   --submenu-animation-speed: 360ms;
   --submenu-animation-easing: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --para-font-size:16px;
+  --para-sm:12px;
 }
 
 html {
@@ -34,6 +36,18 @@ html {
 
 html[scroll-lock] {
   overflow: hidden;
+}
+
+a,p{
+  font-size: var(--para-font-size);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.text__sm{
+  font-size: var(--para-sm) !important;
+  font-weight: 400;
+  line-height: 1;
 }
 
 img,

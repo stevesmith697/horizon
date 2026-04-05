@@ -1,0 +1,56 @@
+
+{% style %}
+    
+#{{ section.id }} *{
+    color:{{ section.settings.text_color }};
+}
+
+{% endstyle %}
+
+<div id="{{ section.id }}" class="announcement_bar h-[25px] flex items-center" style="background-color:{{ section.settings.bg_color }}">
+  <div class="container mx-auto flex flex-col items-center text-center gap-2">
+    {% for block in section.blocks %}
+        {% case block.type %}
+            {% when "text_item" %}
+                 <p class="text__sm">{{ block.settings.text }}</p>
+            {% else %}
+                
+        {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+    "name": "Announcement Bar",
+    "settings": [
+         {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color",
+            "default":"#78005A"
+         },
+          {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default":"#fff"
+         }
+        ],
+        "blocks": [
+            { 
+                "type": "text_item",               
+                "name":"Text Item",
+                "limit": 3,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "text",
+                        "label": "Text",
+                        "default": "Today’s Steal - Ends Tonight"
+                    }
+                ]
+            }
+        ]
+}
+{% endschema %}
